@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>蛙蛙池塘 - 创建爱情网页</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.css" rel="stylesheet">
+<script src="http://libs.baidu.com/jquery/1.9.0/jquery.js"></script>
+<style>
+    body {
+        background:#FFF url(imgs/love16.jpg) repeat 50% 0 fixed ;
+        padding-top: 50px;
+        background-size:480px;
+    }
+    /* Customize container */
+    @media (min-width: 768px) {
+        .container {
+            max-width: 730px;
+        }
+    }
+    .jumbotron {
+        filter:alpha(opacity=80);
+        -moz-opacity:0.8;
+        -khtml-opacity: 0.8;
+        opacity: 0.8; 
+        font-size:18px;
+        padding: 10px;
+    } 
+</style>
+</head>
+<body>
+<div id="tpl" class="container">
+    <div class="jumbotron">
+        <form role="form" action="love.html" method="GET">
+            <div class="form-group">
+                <label>你的昵称</label>
+                <input type="text" class="form-control" name="f" placeholder="过儿" required>
+            </div>
+            <div class="form-group">
+                <label>你爱的人昵称</label>
+                <input type="text" class="form-control" name="t" placeholder="龙儿" required>
+            </div>
+            <div class="form-group">
+                <label>相爱的日子</label>
+                <div class="row">
+                    <div class="col-xs-4">
+                        <input type="number" min="1960" max="2050" name="y" class="form-control" placeholder="2010" required>
+                    </div>
+                    <div class="col-xs-3">
+                        <input type="number" min="1" max="12" name="m" class="form-control" placeholder="12" required>
+                    </div>
+                    <div class="col-xs-3">
+                        <input type="number" min="1" max="31" name="d" class="form-control" placeholder="31" required>
+                    </div>
+                </div>
+            </div>
+
+            <input id="bg_index" type="hidden" name="i" value="16">
+            <button id="change_bg" type="button" class="btn btn-default">换个背景</button>
+            <button type="submit" class="btn btn-primary">发布</button>
+        </form>
+    </div>
+
+    <div class="jumbotron">
+        <p>&copy; Wawasoft 2015</p>
+    </div>
+
+</div> <!-- /container -->
+</div>
+<script type="text/javascript" charset="utf-8">
+$(function(){
+    $("#change_bg").click(function(){
+        var i = Math.floor(Math.random()*15) + 1;
+        $('#bg_index').val(i);
+        $('body').css("background-image", "url(imgs/love"+i+".jpg)");
+    });
+
+});
+</script>
+</body>
+</html>
