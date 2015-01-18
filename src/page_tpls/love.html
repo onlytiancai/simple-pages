@@ -79,10 +79,15 @@
 })(jQuery);
 
 $(function(){
+    function htmlencode(s){  
+        var div = document.createElement('div');  
+        div.appendChild(document.createTextNode(s));  
+        return div.innerHTML;  
+    }  
     function getUrlParam(name) {
         var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
         var r = window.location.search.substr(1).match(reg);
-        if (r!=null) return decodeURI(r[2]);
+        if (r!=null) return htmlencode(decodeURI(r[2]));
         return null; 
     } 
     function timeElapse(date){
